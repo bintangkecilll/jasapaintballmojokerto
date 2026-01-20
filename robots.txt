@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Mencegah crawling pada folder sistem/admin (standar keamanan)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /login/
+
+# Memastikan Googlebot bisa merender CSS, JS, dan Gambar
+# Ini KCRUSIAL untuk "Mobile-First Indexing" agar website tidak dianggap rusak
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
+# Lokasi Sitemap (Penting agar halaman artikel cepat terindeks)
+Sitemap: https://jasapaintballmojokerto.vercel.app/sitemap.xml
