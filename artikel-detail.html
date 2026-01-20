@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Misi - Mojokerto Tactical</title>
     <meta name="description" content="Artikel panduan dan tips seputar paintball, rafting, dan camping di Mojokerto.">
-    
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -34,7 +37,13 @@
             min-height: 100vh;
         }
 
-        h1, h2, h3, h4, h5, .btn, .breadcrumb {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .btn,
+        .breadcrumb {
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -44,8 +53,9 @@
         .navbar {
             background-color: var(--army-dark);
             padding: 15px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
@@ -54,38 +64,84 @@
             padding: 5px 15px;
             transform: skew(-10deg);
         }
-        .navbar-brand span { display: inline-block; transform: skew(10deg); }
+
+        .navbar-brand span {
+            display: inline-block;
+            transform: skew(10deg);
+        }
 
         /* --- Article Layout --- */
         .article-header {
             background: #e9ecef;
-            padding: 130px 0 40px; 
+            padding: 130px 0 40px;
             border-bottom: 5px solid var(--army-green);
             margin-top: 0;
         }
-        
+
         .article-content {
             background: white;
             padding: 50px;
             border: 1px solid #ddd;
-            margin-top: -50px; /* Overlap effect ke atas header */
+            margin-top: -50px;
+            /* Overlap effect ke atas header */
             position: relative;
             z-index: 2;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 80px; /* Jarak bawah sebelum footer */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 80px;
+            /* Jarak bawah sebelum footer */
         }
 
         /* Typography Styling */
-        .article-content h1 { font-size: 2.5rem; font-weight: 700; color: var(--army-dark); line-height: 1.2; margin-bottom: 20px; }
-        .article-body p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #495057; }
-        .article-body h2 { margin-top: 40px; margin-bottom: 15px; border-left: 5px solid var(--tactical-orange); padding-left: 15px; font-weight: 600; font-size: 1.8rem; }
-        .article-body h3 { font-size: 1.4rem; color: var(--army-dark); margin-top: 25px; }
-        .article-body ul, .article-body ol { margin-bottom: 25px; color: #495057; }
-        .article-body li { margin-bottom: 10px; }
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--army-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .article-body p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #495057;
+        }
+
+        .article-body h2 {
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--tactical-orange);
+            padding-left: 15px;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: var(--army-dark);
+            margin-top: 25px;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 25px;
+            color: #495057;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
 
         /* Breadcrumb */
-        .breadcrumb-item a { color: var(--tactical-orange); text-decoration: none; font-weight: 600; }
-        .breadcrumb-item.active { color: #6c757d; }
+        .breadcrumb-item a {
+            color: var(--tactical-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb-item.active {
+            color: #6c757d;
+        }
 
         /* TOC Box */
         .toc-box {
@@ -94,9 +150,31 @@
             padding: 25px;
             margin-bottom: 40px;
         }
-        .toc-header { font-weight: 700; color: var(--army-dark); margin-bottom: 15px; display: flex; justify-content: space-between; cursor: pointer; }
-        .toc-list a { color: var(--army-dark); text-decoration: none; display: block; padding: 5px 0; font-family: 'Roboto', sans-serif; font-size: 1rem; border-bottom: 1px solid #eee; }
-        .toc-list a:hover { color: var(--tactical-orange); padding-left: 5px; transition: 0.2s; }
+
+        .toc-header {
+            font-weight: 700;
+            color: var(--army-dark);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .toc-list a {
+            color: var(--army-dark);
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .toc-list a:hover {
+            color: var(--tactical-orange);
+            padding-left: 5px;
+            transition: 0.2s;
+        }
 
         /* Blockquote Tactical */
         blockquote {
@@ -108,7 +186,17 @@
             margin: 30px 0;
             position: relative;
         }
-        blockquote::before { content: "\f10d"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 30px; opacity: 0.3; position: absolute; top: 10px; right: 20px; }
+
+        blockquote::before {
+            content: "\f10d";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 30px;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
 
         /* Author Bio */
         .author-box {
@@ -119,24 +207,72 @@
             border-left: 5px solid var(--army-dark);
             margin-top: 50px;
         }
-        .author-img { width: 90px; height: 90px; object-fit: cover; border: 3px solid white; margin-right: 20px; }
+
+        .author-img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-right: 20px;
+        }
 
         /* Footer Full Width */
-        footer { 
-            background: #1a2226; 
-            color: #adb5bd; 
-            padding: 60px 0 20px; 
-            font-size: 0.9rem; 
-            margin-top: auto; /* Push footer to bottom */
+        footer {
+            background: #1a2226;
+            color: #adb5bd;
+            padding: 60px 0 20px;
+            font-size: 0.9rem;
+            margin-top: auto;
+            /* Push footer to bottom */
             width: 100%;
         }
-        footer h5 { color: white; margin-bottom: 25px; border-bottom: 2px solid var(--tactical-orange); display: inline-block; padding-bottom: 5px; }
+
+        footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--tactical-orange);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
         /* Floating Buttons */
-        .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 999; border-radius: 4px; box-shadow: 3px 3px 0 rgba(0,0,0,0.3); transition: 0.3s; }
-        .float-top { position: fixed; bottom: 95px; right: 30px; background: var(--army-dark); color: white; width: 45px; height: 45px; display: none; align-items: center; justify-content: center; z-index: 999; border-radius: 4px; border: none; cursor: pointer; }
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            z-index: 999;
+            border-radius: 4px;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .float-top {
+            position: fixed;
+            bottom: 95px;
+            right: 30px;
+            background: var(--army-dark);
+            color: white;
+            width: 45px;
+            height: 45px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body id="top">
 
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -168,9 +304,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <article class="article-content rounded-0">
-                    
+
                     <div class="d-flex align-items-center mb-3 text-secondary text-uppercase small fw-bold">
-                        <span class="me-3"><i class="fa-regular fa-calendar me-2"></i> <span id="artDate">Loading...</span></span>
+                        <span class="me-3"><i class="fa-regular fa-calendar me-2"></i> <span
+                                id="artDate">Loading...</span></span>
                         <span class="me-3">|</span>
                         <span><i class="fa-solid fa-user-shield me-2"></i> Instruktur Bara</span>
                     </div>
@@ -178,7 +315,8 @@
                     <h1 class="mb-4" id="artTitle">Memuat Data Misi...</h1>
 
                     <div class="mb-5 position-relative">
-                        <img src="" id="artImage" class="img-fluid w-100 border border-3 border-secondary" alt="Article Image" style="min-height: 400px; object-fit: cover; background: #ddd;">
+                        <img src="" id="artImage" class="img-fluid w-100 border border-3 border-secondary"
+                            alt="Article Image" style="min-height: 400px; object-fit: cover; background: #ddd;">
                         <div class="position-absolute bottom-0 start-0 bg-dark text-white px-3 py-1 opacity-75 small">
                             DOKUMENTASI OPERASI
                         </div>
@@ -191,7 +329,7 @@
                         </div>
                         <div class="collapse show mt-2" id="tocCollapse">
                             <ul id="tocList" class="toc-list list-unstyled mb-0">
-                                </ul>
+                            </ul>
                         </div>
                     </div>
 
@@ -202,18 +340,23 @@
                     <div class="mt-5 pt-4 border-top border-2">
                         <div class="d-flex align-items-center">
                             <span class="fw-bold text-uppercase me-3">SEBARKAN INTEL:</span>
-                            <a href="#" class="btn btn-success btn-sm rounded-0 me-2"><i class="fa-brands fa-whatsapp"></i> WA</a>
-                            <a href="#" class="btn btn-primary btn-sm rounded-0 me-2"><i class="fa-brands fa-facebook-f"></i> FB</a>
-                            <a href="#" class="btn btn-info btn-sm rounded-0 text-white"><i class="fa-brands fa-twitter"></i> TW</a>
+                            <a href="#" class="btn btn-success btn-sm rounded-0 me-2"><i
+                                    class="fa-brands fa-whatsapp"></i> WA</a>
+                            <a href="#" class="btn btn-primary btn-sm rounded-0 me-2"><i
+                                    class="fa-brands fa-facebook-f"></i> FB</a>
+                            <a href="#" class="btn btn-info btn-sm rounded-0 text-white"><i
+                                    class="fa-brands fa-twitter"></i> TW</a>
                         </div>
                     </div>
 
                     <div class="author-box">
-                        <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Author" class="author-img shadow-sm">
+                        <img src="img/blog1.jpg" alt="Author" class="author-img shadow-sm">
                         <div>
                             <h5 class="fw-bold text-uppercase mb-1">Instruktur Bara</h5>
                             <span class="badge bg-warning text-dark rounded-0 mb-2">HEAD COACH</span>
-                            <p class="small mb-0 text-secondary">Mantan atlet airsoft gun nasional yang kini mendedikasikan diri melatih kekompakan tim melalui simulasi tempur di Mojokerto Tactical.</p>
+                            <p class="small mb-0 text-secondary">Mantan atlet airsoft gun nasional yang kini
+                                mendedikasikan diri melatih kekompakan tim melalui simulasi tempur di Mojokerto
+                                Tactical.</p>
                         </div>
                     </div>
 
@@ -238,9 +381,11 @@
                 </div>
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold text-white">KONTAK</h5>
-                        <ul class="list-unstyled">
-                        <li class="text-secondary mb-2"><i class="fa-solid fa-phone text-warning me-2"></i> +62 851 2345 6789</li>
-                        <li class="text-secondary mb-2"><i class="fa-solid fa-map-pin text-warning me-2"></i> Pacet, Mojokerto</li>
+                    <ul class="list-unstyled">
+                        <li class="text-secondary mb-2"><i class="fa-solid fa-phone text-warning me-2"></i> +62 851 2345
+                            6789</li>
+                        <li class="text-secondary mb-2"><i class="fa-solid fa-map-pin text-warning me-2"></i> Pacet,
+                            Mojokerto</li>
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4">
@@ -252,14 +397,16 @@
                 </div>
             </div>
             <hr class="border-secondary mt-4">
-            <div class="text-center small text-secondary">© 2026 Mojokerto Paintball Adventure. All Rights Reserved.</div>
+            <div class="text-center small text-secondary">© 2026 Mojokerto Paintball Adventure. All Rights Reserved.
+            </div>
         </div>
     </footer>
 
     <a href="https://wa.me/6285123456789" class="float-wa" title="Hubungi Admin">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="float-top" id="btnBackToTop" title="Kembali ke Atas">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="float-top" id="btnBackToTop"
+        title="Kembali ke Atas">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
@@ -270,7 +417,7 @@
             '1': {
                 title: "Tips Menang Capture The Flag: Strategi Gerilya",
                 date: "12 Jan 2026",
-                image: "https://source.unsplash.com/1200x600/?paintball,mask",
+                image: "img/blog1.jpg",
                 content: `
                     <p class="lead fw-bold text-dark">Capture The Flag (CTF) adalah misi klasik namun paling menantang di hutan Pacet. Kuncinya bukan siapa yang paling cepat lari, tapi siapa yang paling cerdik mengatur formasi.</p>
                     
@@ -294,7 +441,7 @@
             '2': {
                 title: "Keamanan Rafting di Musim Hujan: Panduan Lengkap",
                 date: "08 Jan 2026",
-                image: "https://source.unsplash.com/1200x600/?river,rafting",
+                image: "img/blog2.jpg",
                 content: `
                     <p class="lead fw-bold text-dark">Banyak yang takut rafting saat hujan, padahal ini adalah saat debit air Sungai Kromong paling seru (Grade 3+). Namun, prosedur keamanan wajib diperketat.</p>
 
@@ -313,7 +460,7 @@
             '3': {
                 title: "Tips Camping Aman & Nyaman di Hutan Pinus",
                 date: "05 Jan 2026",
-                image: "https://source.unsplash.com/1200x600/?camping,bonfire",
+                image: "img/blog3.jpg",
                 content: `
                     <p class="lead fw-bold text-dark">Camping di hutan pinus Pacet memberikan ketenangan jiwa. Suhu bisa mencapai 15 derajat di malam hari. Persiapan yang salah bisa membuat liburan jadi mimpi buruk.</p>
 
@@ -341,7 +488,7 @@
         }
 
         // --- 3. Logika Render Halaman ---
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const articleId = getQueryParam('id');
             const data = articles[articleId];
 
@@ -356,25 +503,25 @@
                 // --- Generate TOC Otomatis (Setelah konten dimuat) ---
                 const tocList = document.getElementById('tocList');
                 const headers = document.querySelectorAll('.article-body h2, .article-body h3');
-                
-                if(headers.length > 0) {
+
+                if (headers.length > 0) {
                     headers.forEach((header, index) => {
                         const id = header.id || 'toc-' + index;
                         header.id = id; // Pastikan header punya ID
-                        
+
                         const li = document.createElement('li');
                         const a = document.createElement('a');
                         a.href = '#' + id;
                         a.innerText = header.innerText;
-                        
+
                         // Indentasi untuk H3
-                        if(header.tagName === 'H3') {
+                        if (header.tagName === 'H3') {
                             a.style.paddingLeft = '20px';
                             a.style.fontSize = '0.9rem';
                         }
 
                         // Smooth Scroll
-                        a.addEventListener('click', function(e) {
+                        a.addEventListener('click', function (e) {
                             e.preventDefault();
                             document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
                         });
@@ -403,7 +550,7 @@
         });
 
         // Back to Top Visibility
-        window.onscroll = function() {
+        window.onscroll = function () {
             var btn = document.getElementById("btnBackToTop");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 btn.style.display = "flex";
@@ -413,4 +560,5 @@
         };
     </script>
 </body>
+
 </html>
