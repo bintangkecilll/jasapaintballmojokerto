@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mojokerto Paintball - Arena Hutan Pacet & Trawas</title>
+    <meta name="description" content="Pusat Paintball dan Outbound terbaik di Mojokerto. Lokasi hutan pinus Pacet dan Trawas. Paket murah, peralatan lengkap, instruktur berpengalaman.">
+    
+    <meta property="og:title" content="Mojokerto Paintball - Tactical Adventure">
+    <meta property="og:image" content="assets/img/mojokerto-og.jpg">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --army-dark: #2f3e46; /* Dark Slate */
+            --army-green: #52796f; /* Muted Green */
+            --tactical-orange: #d94e33; /* Alert Orange */
+            --bg-sand: #f4f3ee; /* Off-white Sand */
+            --text-dark: #212529;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-sand);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .btn {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Navbar (Solid Dark) --- */
+        .navbar {
+            background-color: var(--army-dark);
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            border: 2px solid var(--tactical-orange);
+            padding: 5px 15px;
+            transform: skew(-10deg); /* Style militer miring */
+        }
+        .navbar-brand span { display: inline-block; transform: skew(10deg); }
+        .nav-link {
+            color: #cad2c5 !important;
+            font-weight: 500;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--tactical-orange) !important;
+        }
+
+        /* --- Hero Section (Split Layout) --- */
+        .hero-section {
+            padding: 150px 0 100px;
+            background: linear-gradient(to right, var(--army-dark) 50%, rgba(47, 62, 70, 0.9)), url('https://source.unsplash.com/1920x1080/?jungle,camoflage');
+            background-size: cover;
+            background-position: right;
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        /* Shape Divider Miring */
+        .hero-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: url('https://source.unsplash.com/800x1200/?paintball,player') center/cover;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+        /* Mobile adjustment for hero shape */
+        @media (max-width: 991px) {
+            .hero-section { background: var(--army-dark); padding-top: 120px; text-align: center; }
+            .hero-shape { display: none; }
+        }
+
+        .hero-content { position: relative; z-index: 2; color: white; }
+        .hero-badge {
+            background-color: var(--tactical-orange);
+            color: white;
+            padding: 5px 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transform: skew(-10deg);
+        }
+
+        /* --- Buttons --- */
+        .btn-tactical {
+            background-color: var(--tactical-orange);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 700;
+            transition: 0.3s;
+            border-radius: 0; /* Kotak tegas */
+            border-left: 5px solid #9c2a15;
+        }
+        .btn-tactical:hover {
+            background-color: white;
+            color: var(--tactical-orange);
+            transform: translateX(5px);
+        }
+        .btn-outline-tactical {
+            border: 2px solid white;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 0;
+            font-weight: 600;
+        }
+        .btn-outline-tactical:hover {
+            background: white;
+            color: var(--army-dark);
+        }
+
+        /* --- General Section --- */
+        section { padding: 90px 0; }
+        .section-header {
+            margin-bottom: 50px;
+            border-left: 5px solid var(--tactical-orange);
+            padding-left: 20px;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--army-dark);
+            margin: 0;
+            font-weight: 700;
+        }
+        .section-header p { margin: 5px 0 0; color: #6c757d; font-family: 'Roboto', sans-serif; }
+
+        /* --- Stats Counter --- */
+        .stats-bar {
+            background-color: var(--tactical-orange);
+            color: white;
+            padding: 40px 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* --- About --- */
+        .about-img-box {
+            position: relative;
+            padding: 20px;
+            border: 3px solid var(--army-green);
+        }
+        .about-img-box img {
+            width: 100%;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        /* Pattern Dot Background */
+        .about-img-box::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px;
+            width: 100%; height: 100%;
+            background-image: radial-gradient(var(--army-dark) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        /* --- Services (Horizontal Cards) --- */
+        .service-card {
+            background: white;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-left: 4px solid var(--army-green);
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .service-card:hover {
+            background: var(--army-green);
+            transform: translateY(-5px);
+        }
+        .service-card:hover h4, .service-card:hover p, .service-card:hover i {
+            color: white;
+        }
+        .service-icon {
+            font-size: 40px;
+            color: var(--tactical-orange);
+            margin-right: 20px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        /* --- Packages (Clip Path Header) --- */
+        .package-col {
+            transition: 0.3s;
+        }
+        .package-col:hover { transform: translateY(-10px); }
+        .package-box {
+            background: white;
+            border: 1px solid #ddd;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .package-header {
+            background: var(--army-dark);
+            color: white;
+            padding: 30px 20px 50px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            text-align: center;
+        }
+        .package-header.popular { background: var(--tactical-orange); }
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .package-body { padding: 0 20px 30px; flex-grow: 1; text-align: center; }
+        .package-body ul li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 0.95rem;
+        }
+
+        /* --- Gallery (Grid + Overlay) --- */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(47, 62, 70, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        
+        /* Nav Button Gallery Custom */
+        .gallery-nav-btn {
+            background: var(--army-dark);
+            color: white;
+            border: none;
+            width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s;
+        }
+        .gallery-nav-btn:hover { background: var(--tactical-orange); }
+
+        /* --- Testimonials (Grid 2 Col) --- */
+        .testi-box {
+            background: white;
+            padding: 30px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+        .testi-box::after {
+            content: '”';
+            position: absolute;
+            top: 10px; right: 20px;
+            font-size: 80px;
+            color: #f1f1f1;
+            font-family: serif;
+            line-height: 0.8;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #1a2226;
+            color: #adb5bd;
+            padding: 70px 0 30px;
+            font-size: 0.9rem;
+        }
+        footer h5 { color: white; margin-bottom: 25px; border-bottom: 2px solid var(--tactical-orange); display: inline-block; padding-bottom: 5px; }
+        footer a { color: #adb5bd; text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--tactical-orange); padding-left: 5px; }
+
+        /* Floating WA */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white;
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 999;
+            border-radius: 5px; /* Square with slight radius */
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .float-wa:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.2); }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Mojokerto Paintball Adventure",
+      "image": "https://mojokertopaintball.com/assets/logo.png",
+      "telephone": "+6285123456789",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Raya Pacet No. 12",
+        "addressLocality": "Pacet",
+        "addressRegion": "Mojokerto",
+        "postalCode": "61374",
+        "addressCountry": "ID"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+</head>
+<body id="home">
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span><i class="fa-solid fa-person-rifle"></i> MOJOKERTO TACTICAL</span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">TENTANG</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">FASILITAS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">HARGA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">GALERI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">KONTAK</a></li>
+                </ul>
+                <a href="https://wa.me/6285123456789" class="btn btn-tactical ms-3">BOOKING NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-shape"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-badge shadow">
+                        <i class="fa-solid fa-location-dot"></i> ARENA PACET & TRAWAS
+                    </div>
+                    <h1 class="display-3 fw-bold mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        UJI NYALI DI <br> <span style="color: var(--tactical-orange)">MEDAN PERANG</span> NYATA
+                    </h1>
+                    <p class="lead mb-5" style="font-weight: 300; opacity: 0.9;">
+                        Rasakan sensasi pertempuran simulasi di hutan pinus yang alami. Peralatan modern, skenario menantang, dan instruktur profesional siap memandu adrenalin Anda.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#packages" class="btn btn-tactical shadow"><i class="fa-solid fa-tag me-2"></i> LIHAT PAKET</a>
+                        <a href="#about" class="btn btn-outline-tactical"><i class="fa-solid fa-info-circle me-2"></i> INFO DETAIL</a>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </header>
+
+    <div class="stats-bar shadow">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-3 mb-md-0 border-end border-white border-opacity-25">
+                    <h2 class="display-5 fw-bold mb-0">500+</h2>
+                    <span class="small text-uppercase">Event Sukses</span>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0 border-end border-white border-opacity-25">
+                    <h2 class="display-5 fw-bold mb-0">100%</h2>
+                    <span class="small text-uppercase">Safety Record</span>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="display-5 fw-bold mb-0">3</h2>
+                    <span class="small text-uppercase">Lokasi Arena</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-img-box">
+                        <img src="https://source.unsplash.com/600x400/?paintball,team" alt="About Mojokerto Paintball">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="section-header">
+                        <h2>SIAPA KAMI?</h2>
+                        <p>Provider Outbound & Adventure Terpercaya di Jawa Timur</p>
+                    </div>
+                    <p class="text-secondary">
+                        Mojokerto Paintball hadir untuk memfasilitasi kebutuhan kegiatan luar ruang Anda di kawasan wisata Pacet dan Trawas. Kami tidak hanya menawarkan permainan paintball, tetapi pengalaman membangun karakter dan kekompakan tim.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        Arena kami didesain khusus memanfaatkan topografi alami hutan, semak, dan sungai, memberikan pengalaman "war" yang autentik dan berbeda dari arena buatan biasa.
+                    </p>
+                    
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Marker Semi-Otomatis</li>
+                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Google Anti-Fog</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Instruktur Bersertifikat</li>
+                                <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Asuransi Kegiatan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-white">
+        <div class="container">
+            <div class="section-header text-center border-0 border-bottom border-warning pb-3 d-inline-block mx-auto" style="border-width: 5px !important;">
+                <h2>LAYANAN KAMI</h2>
+            </div>
+            <p class="text-center text-secondary mb-5">Lebih dari sekadar tembak-menembak.</p>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-gun"></i></div>
+                        <div>
+                            <h4 class="mb-1">Paintball Wargame</h4>
+                            <p class="mb-0 text-secondary small">Simulasi tempur dengan skenario Deathmatch & Capture The Flag.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-water"></i></div>
+                        <div>
+                            <h4 class="mb-1">Rafting & Tubing</h4>
+                            <p class="mb-0 text-secondary small">Arung jeram di sungai Kromong Pacet yang menantang.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-tents"></i></div>
+                        <div>
+                            <h4 class="mb-1">Camping Ground</h4>
+                            <p class="mb-0 text-secondary small">Fasilitas kemah lengkap dengan api unggun di tepi hutan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+                        <div>
+                            <h4 class="mb-1">Outbound Training</h4>
+                            <p class="mb-0 text-secondary small">Program pengembangan SDM untuk perusahaan dan sekolah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark text-white position-relative" style="background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png') var(--army-dark);">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-4 mb-md-0">
+                <h3 class="fw-bold text-uppercase text-warning">Promo Bulan Ini!</h3>
+                <p class="mb-0">Booking untuk >30 orang, gratis dokumentasi drone & video cinematic.</p>
+            </div>
+            <a href="https://wa.me/6285123456789" class="btn btn-outline-light btn-lg rounded-0 px-5">KLAIM PROMO</a>
+        </div>
+    </section>
+
+    <section id="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>DAFTAR PAKET</h2>
+                <p>Pilih sesuai budget dan tingkat adrenalin Anda.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 package-col">
+                    <div class="package-box shadow-sm">
+                        <div class="package-header">
+                            <h4>BASIC WAR</h4>
+                            <div class="price-tag">135K</div>
+                            <small class="opacity-75">Per Pax (Min 10)</small>
+                        </div>
+                        <div class="package-body pt-4">
+                            <ul class="list-unstyled">
+                                <li><strong>40</strong> Peluru Paintball</li>
+                                <li>Durasi <strong>2 Jam</strong></li>
+                                <li>Air Mineral</li>
+                                <li>Standard Safety Gear</li>
+                                <li>Arena Hutan</li>
+                            </ul>
+                            <div class="mt-4 d-grid gap-2">
+                                <button class="btn btn-outline-dark rounded-0" onclick="showDetail('Basic War', 'Paket hemat untuk pemula. 40 Peluru, Durasi 2 Jam.', 'assets/img/basic.jpg')">DETAIL</button>
+                                <button class="btn btn-tactical rounded-0" onclick="openOrderForm('Basic War')">PESAN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 package-col">
+                    <div class="package-box shadow">
+                        <div class="package-header popular">
+                            <div class="badge bg-white text-dark mb-2 rounded-0">REKOMENDASI</div>
+                            <h4>ASSAULT FULL</h4>
+                            <div class="price-tag">185K</div>
+                            <small class="opacity-75">Per Pax (Min 10)</small>
+                        </div>
+                        <div class="package-body pt-4">
+                            <ul class="list-unstyled">
+                                <li><strong>80</strong> Peluru Paintball</li>
+                                <li>Durasi <strong>3 Jam</strong></li>
+                                <li><strong>Makan Siang</strong> (Prasmanan)</li>
+                                <li>Coffee Break & Snack</li>
+                                <li>Foto Dokumentasi</li>
+                            </ul>
+                            <div class="mt-4 d-grid gap-2">
+                                <button class="btn btn-outline-dark rounded-0" onclick="showDetail('Assault Full', 'Paket lengkap dengan makan siang dan peluru lebih banyak.', 'assets/img/assault.jpg')">DETAIL</button>
+                                <button class="btn btn-tactical rounded-0" onclick="openOrderForm('Assault Full')">PESAN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 package-col">
+                    <div class="package-box shadow-sm">
+                        <div class="package-header">
+                            <h4>RAFTING + WAR</h4>
+                            <div class="price-tag">350K</div>
+                            <small class="opacity-75">Per Pax (Min 20)</small>
+                        </div>
+                        <div class="package-body pt-4">
+                            <ul class="list-unstyled">
+                                <li>Paintball (50 Peluru)</li>
+                                <li><strong>Rafting Trip</strong> (7 KM)</li>
+                                <li>Makan Siang & Snack</li>
+                                <li>Shuttle Transport</li>
+                                <li>Guide Professional</li>
+                            </ul>
+                            <div class="mt-4 d-grid gap-2">
+                                <button class="btn btn-outline-dark rounded-0" onclick="showDetail('Rafting + War', 'Kombinasi Paintball dan Rafting. Seharian penuh adrenalin.', 'assets/img/rafting.jpg')">DETAIL</button>
+                                <button class="btn btn-tactical rounded-0" onclick="openOrderForm('Rafting + War')">PESAN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="bg-dark text-white pb-0">
+        <div class="container pt-5">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <h2 class="text-uppercase border-start border-warning border-5 ps-3 m-0">Galeri Misi</h2>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="gallery-nav-btn" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button class="gallery-nav-btn" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container-fluid p-0">
+                        <div class="row g-0">
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?paintball,mask" alt="Galeri 1">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?forest,soldier" alt="Galeri 2">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?river,rafting" alt="Galeri 3">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?campfire" alt="Galeri 4">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container-fluid p-0">
+                        <div class="row g-0">
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?team,building" alt="Galeri 5">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?jeep,adventure" alt="Galeri 6">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?forest,mist" alt="Galeri 7">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="gallery-item">
+                                    <img src="https://source.unsplash.com/600x600/?tactical,gear" alt="Galeri 8">
+                                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus fa-2x text-warning"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" class="bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>TESTIMONI PASUKAN</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="testi-box shadow-sm h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/11.jpg" width="50" class="rounded-circle me-3 border border-warning" alt="User">
+                            <div>
+                                <h6 class="fw-bold m-0">Andi Prasetyo</h6>
+                                <small class="text-secondary">Surabaya Community</small>
+                            </div>
+                        </div>
+                        <p class="fst-italic text-secondary">"Gokil abis! Hutan Pacet bener-bener kerasa kayak medan perang asli. Pelayanan ramah tapi tegas saat briefing safety. Mantap!"</p>
+                        <div class="text-warning small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testi-box shadow-sm h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/12.jpg" width="50" class="rounded-circle me-3 border border-warning" alt="User">
+                            <div>
+                                <h6 class="fw-bold m-0">Rina Melati</h6>
+                                <small class="text-secondary">HRD PT Maju Terus</small>
+                            </div>
+                        </div>
+                        <p class="fst-italic text-secondary">"Paket Rafting + Paintball-nya sangat recommended untuk gathering kantor. Makanannya enak, guidenya seru."</p>
+                        <div class="text-warning small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-dark btn-sm rounded-0"><i class="fa-solid fa-arrow-left"></i> PREV</button>
+                <button class="btn btn-outline-dark btn-sm rounded-0">NEXT <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="section-header">
+                        <h2>FAQ</h2>
+                        <p>Pertanyaan umum seputar kegiatan.</p>
+                    </div>
+                    <a href="https://wa.me/6285123456789" class="btn btn-tactical w-100 shadow"><i class="fa-brands fa-whatsapp me-2"></i> TANYA ADMIN</a>
+                </div>
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                        <div class="accordion-item bg-white mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Lokasi tepatnya dimana?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">Kami memiliki basecamp di dekat Pemandian Air Panas Pacet dan satu lagi di area Trawas. Maps akan dikirimkan saat booking.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Apakah baju akan kotor?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">Ya, cat paintball berbasis air dan pewarna makanan. Aman dan bisa dicuci, tapi kami sarankan membawa baju ganti. Kami menyediakan seragam loreng untuk luarannya.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>LOG Misi Terbaru</h2>
+                <p>Berita dan Tips seputar kegiatan outbound.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <div class="row g-0 h-100">
+                            <div class="col-12">
+                                <img src="https://source.unsplash.com/600x400/?paintball,mask" class="img-fluid w-100 object-fit-cover" style="height: 200px;" alt="Blog">
+                            </div>
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <small class="text-warning fw-bold">12 Jan 2026</small>
+                                    <h5 class="fw-bold mt-1">Tips Menang Capture The Flag</h5>
+                                    <p class="small text-secondary mb-2">Strategi membagi tim penyerang dan bertahan...</p>
+                                    <a href="artikel-detail.html?id=1" class="text-dark fw-bold text-decoration-none small stretched-link">BACA SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <div class="row g-0 h-100">
+                            <div class="col-12">
+                                <img src="https://source.unsplash.com/600x400/?river,rafting" class="img-fluid w-100 object-fit-cover" style="height: 200px;" alt="Blog">
+                            </div>
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <small class="text-warning fw-bold">08 Jan 2026</small>
+                                    <h5 class="fw-bold mt-1">Keamanan Rafting di Musim Hujan</h5>
+                                    <p class="small text-secondary mb-2">Prosedur safety yang kami terapkan saat debit air naik...</p>
+                                    <a href="artikel-detail.html?id=2" class="text-dark fw-bold text-decoration-none small stretched-link">BACA SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-0">
+                        <div class="row g-0 h-100">
+                            <div class="col-12">
+                                <img src="https://source.unsplash.com/600x400/?campfire" class="img-fluid w-100 object-fit-cover" style="height: 200px;" alt="Blog">
+                            </div>
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <small class="text-warning fw-bold">05 Jan 2026</small>
+                                    <h5 class="fw-bold mt-1">Tips Camping Aman di Hutan</h5>
+                                    <p class="small text-secondary mb-2">Perlengkapan survival yang wajib dibawa saat kemah...</p>
+                                    <a href="artikel-detail.html?id=3" class="text-dark fw-bold text-decoration-none small stretched-link">BACA SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="text-warning mb-4 fw-bold">HUBUNGI MARKAS</h2>
+                    <p class="mb-4">Siap untuk reservasi atau sekadar tanya jawab? Tim admin kami standby 24 Jam.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 fs-5"><i class="fa-brands fa-whatsapp text-warning me-3"></i> +62 851 2345 6789</li>
+                        <li class="mb-3 fs-5"><i class="fa-solid fa-envelope text-warning me-3"></i> info@mojokertopaintball.com</li>
+                        <li class="mb-3 fs-5"><i class="fa-solid fa-map-location-dot text-warning me-3"></i> Jl. Raya Pacet - Mojokerto</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <form class="bg-white p-4 text-dark shadow-lg" style="border-top: 5px solid var(--tactical-orange);">
+                        <h4 class="mb-3 fw-bold">Kirim Pesan Cepat</h4>
+                        <div class="mb-3">
+                            <input type="text" class="form-control rounded-0 bg-light border-0" placeholder="Nama Komandan">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control rounded-0 bg-light border-0" placeholder="Nomor WhatsApp">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control rounded-0 bg-light border-0" rows="3" placeholder="Isi Pesan..."></textarea>
+                        </div>
+                        <button class="btn btn-tactical w-100">KIRIM SEKARANG</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>MOJOKERTO TACTICAL</h5>
+                    <p class="small">Penyedia layanan simulasi tempur dan wisata alam di Mojokerto dengan standar keamanan tinggi.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>NAVIGASI</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#packages">Paket</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>SOSIAL</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">TikTok</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>LEGAL</h5>
+                    <p class="small">© 2026 Mojokerto Paintball Adventure.<br>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285123456789" class="float-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-0 border-0">
+                <div class="modal-header bg-dark text-white rounded-0">
+                    <h5 class="modal-title" id="modalTitle"><i class="fa-solid fa-folder-open me-2"></i> DATA MISI</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5 bg-secondary">
+                            <img src="" id="modalImg" class="img-fluid h-100 object-fit-cover w-100" style="min-height: 250px;">
+                        </div>
+                        <div class="col-md-7 p-4 bg-light">
+                            <h3 id="modalName" class="fw-bold text-dark border-bottom border-dark pb-2 mb-3"></h3>
+                            <p id="modalDesc" class="text-secondary"></p>
+                            
+                            <div class="alert alert-warning small border-0 border-start border-5 border-warning rounded-0">
+                                <strong>Catatan:</strong> Booking minimal H-3 untuk memastikan ketersediaan slot di arena.
+                            </div>
+
+                            <button id="btnModalPesan" class="btn btn-tactical w-100 mt-3">KONFIRMASI MISI INI</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content rounded-0">
+                <div class="modal-header bg-warning rounded-0">
+                    <h5 class="modal-title fw-bold text-dark">FORMULIR BOOKING</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="waForm">
+                        <div class="mb-2">
+                            <label class="small fw-bold">Pilihan Paket</label>
+                            <input type="text" id="inputPaket" class="form-control form-control-sm rounded-0 bg-light" readonly>
+                        </div>
+                        <div class="mb-2">
+                            <label class="small fw-bold">Nama Pemesan</label>
+                            <input type="text" id="inputNama" class="form-control form-control-sm rounded-0" required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="small fw-bold">Tanggal</label>
+                            <input type="date" id="inputTgl" class="form-control form-control-sm rounded-0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small fw-bold">Jml Personel</label>
+                            <input type="number" id="inputJml" class="form-control form-control-sm rounded-0" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 rounded-0">KIRIM DATA</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Detail Modal Logic
+        function showDetail(name, desc, imgUrl) {
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalDesc').innerText = desc;
+            
+            // Placeholder img handling
+            if (imgUrl.includes('assets/')) imgUrl = 'https://source.unsplash.com/600x600/?paintball';
+            document.getElementById('modalImg').src = imgUrl;
+
+            const myModal = new bootstrap.Modal(document.getElementById('detailModal'));
+            
+            // Link Pesan button inside detail modal
+            document.getElementById('btnModalPesan').onclick = function() {
+                myModal.hide();
+                openOrderForm(name);
+            };
+            
+            myModal.show();
+        }
+
+        // Order Modal Logic
+        function openOrderForm(paketName) {
+            document.getElementById('inputPaket').value = paketName;
+            const orderModal = new bootstrap.Modal(document.getElementById('orderModal'));
+            orderModal.show();
+        }
+
+        // Handle WA Submit
+        document.getElementById('waForm').onsubmit = function(e) {
+            e.preventDefault();
+            const paket = document.getElementById('inputPaket').value;
+            const nama = document.getElementById('inputNama').value;
+            const tgl = document.getElementById('inputTgl').value;
+            const jml = document.getElementById('inputJml').value;
+
+            const text = `Lapor Admin, saya ingin booking:\n\nPaket: ${paket}\nNama: ${nama}\nTanggal: ${tgl}\nJumlah: ${jml} Personel\n\nMohon arahan selanjutnya.`;
+            window.open(`https://wa.me/6285123456789?text=${encodeURIComponent(text)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
